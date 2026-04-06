@@ -1,0 +1,79 @@
+conky.config = {
+    background = true,
+    -- Linux Mint Transparency Fix
+    own_window = true,
+    own_window_type = 'desktop',
+    own_window_transparent = true,
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_colour = '000000',
+    
+    double_buffer = true,
+    override_utf8_locale = true,
+    use_xft = true,
+    font = 'Inquisitor:size=12', -- Adjusted size to fit better
+    xftalpha = 1.0,
+    update_interval = 0.5,
+    uppercase = false,
+    
+    draw_borders = false,
+    draw_graph_borders = true,
+    draw_outline = false,
+    draw_shades = false,
+    
+    -- Screen Placement
+    alignment = 'top_left',
+    gap_x = 30,
+    gap_y = 80, -- Lowered slightly from the top bar
+    
+    minimum_width = 300,
+    maximum_width = 300,
+    
+    color0 = 'FF2222', -- Mechanicus Red
+    color1 = 'FF9800', 
+    color2 = 'FFEB3B', 
+    color3 = 'FFFFFF', 
+};
+
+conky.text = [[
+${alignc}${color0}++ SYSTEM CONTROLS ++
+
+${alignc}- Navigator's Sanctum -
+${alignc}======================================
+Local stellar coordinates ${alignr}${addr eth0}
+
+Warp Beacons $hr
+Distant:
+> The Astronomican${alignr}${if_match "${texeci 60 curl --connect-timeout 3 -sL https://google.com -w '%{http_code}' -o /dev/null}"=="200"}${color0}Active${else}${color1}Warp Storm${endif}
+
+${alignc}- Astropathic Choir -
+${alignc}==================================
+
+${alignc}- Astropathic Warp Exposure -
+Incoming: ${downspeed eth0}/s ${alignr}Outgoing: ${upspeed eth0}/s
+${color0}${downspeedgraph eth0 35,135 ffffff FF2222 -t} ${alignr}${upspeedgraph eth0 35,135 ffffff FF2222 -t}
+
+Astropathic Signals Active: ${alignr}${tcp_portmon 1 65535 count}
+Gallatic Location${alignr}CYPHER
+> ${tcp_portmon 1 65535 rip 0}${alignr}${tcp_portmon 1 65535 rport 0}
+> ${tcp_portmon 1 65535 rip 1}${alignr}${tcp_portmon 1 65535 rport 1}
+> ${tcp_portmon 1 65535 rip 2}${alignr}${tcp_portmon 1 65535 rport 2}
+> ${tcp_portmon 1 65535 rip 3}${alignr}${tcp_portmon 1 65535 rport 3}
+> ${tcp_portmon 1 65535 rip 4}${alignr}${tcp_portmon 1 65535 rport 4}
+]];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
